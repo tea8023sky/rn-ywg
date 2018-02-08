@@ -1,6 +1,6 @@
 # yewugo-rn
 
-react native 重构业务 Go,3.0 发布 .
+react native app .
 
 引入第三方插件
 
