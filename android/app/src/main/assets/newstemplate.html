@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="news.css">
+    <script src="template-web.js"></script>
+    <script>
+        function doZoom(size) {
+            document.getElementById('content').style.fontSize = size + 'px';
+            document.getElementById('content').style.lineHeight = size + 'px';
+            //document.write("Injected JS ");
+        }
+        //alert(1);
+        window.document.addEventListener('message', function (e) {
+            var news = JSON.parse(e.data);
+            document.getElementById('body').innerHTML = "123";
+            var contenthtml = template('content0', news)
+            document.getElementById('body').innerHTML = contenthtml;
+            //alert(JSON.stringify(e));
+        });
+        function open(aid, isimg,item) {
+            //alert(JSON.stringify(item));
+            window.postMessage(JSON.stringify({ type: 'open', id: aid, isimg: isimg,item : item }));
+        }
+        function onClickImg(index) {  
+            window.postMessage(JSON.stringify({ type: 'onClickImg', index: index }));
+        }  
+    </script>
+    <script id="content0" type="text/html">
+        <div class="mainbody">
+            <h1 id="title">{{title}}</h1>
+            <div class="time_author" id="time_author">
+                <span id="source">{{source}}</span>&nbsp;&nbsp;<span id="time">{{retime}}</span>
+            </div>
+            <div class="contact" id="content">{{#content}}</div>
+            <div class="author">
+                <div class="readcount">阅读：<span id="readcount">{{randomread}}</span></div>
+                <div class="editor">[&nbsp;责任编辑：<span id="author">{{author}} {{mobile}}</span>&nbsp;]</div>
+            </div>
+            <br>
+           
+            <div class="hotArticles" id="hotArticles">
+                    <h2>相关新闻</h2>
+                {{each hots}}
+                <a href="javascript:open({{$value.id}},{{$value.isimg}},{{$value}});">
+                    <div class="imgcont">
+                        <img src="{{$value.img}}" />
+                    </div>
+                    <div class="txtcont">
+                        <h3>{{$value.title}}</h3>
+                        <span>{{$value.source}}</span>
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+     
+    </script>
+</head>
+
+
+<body id="body">
+    正在加载新闻内容...
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+﻿* {
+	margin: 0px;
+	padding: 0px;
+	font-size: 100%;
+	list-style: none;
+}
+
+.mainbody {
+	padding: 0 15px;
+}
+
+h1 {
+	font-size: 1.5rem;
+	color: #333333;
+	padding: 24px 0 10px 0;
+}
+
+.time_author {
+	font-size: 12px;
+	color: #9c9c9c;
+	padding-bottom: 6px;
+}
+
+.contact {
+	color: #333333;
+	font-size: 16px;
+	line-height: 24px;
+	padding-top: 5px;
+	width: 100%;
+	overflow: hidden;
+}
+
+img {
+	width: 100%;
+	margin: 5px 0;
+}
+
+.netimgbox {
+	width: 60%;
+	text-align: center;
+	margin: 30px auto;
+	font-size: 14px;
+	color: #ccc;
+}
+
+.netimgbox img {
+	width: 42%;
+}
+
+.hotArticles {
+	line-height: 22px;
+	padding: 10px 0px;
+	margin: 30px 0px 10px 0px;
+}
+
+.hotArticles h2 {
+	font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 8px;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.hotArticles a,
+.hotArticles a:visited {
+	font-size: 14px;
+	color: #5c5c5c;
+	text-decoration: none;
+	word-break: break-all;
+}
+
+.hotArticles .hotArticlesInner {
+	margin: 0 auto;
+}
+
+.hotArticles a {
+	overflow: hidden;
+	padding: 10px 0;
+	display: block;
+}
+
+.hotArticles .imgcont {
+	width: 100px;
+	height: 75px;
+	margin-right: 10px;
+	overflow: hidden;
+	float: left;
+	display: inline-block;
+}
+
+.hotArticles .imgcont img {
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+.hotArticles .txtcont {
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+
+.hotArticles .txtcont h3 {
+	font-size: 14px;
+	font-weight: normal;
+	color: #333333;
+	padding-bottom: 6px;
+}
+
+.hotArticles .txtcont span {
+	font-size: 12px;
+	color: #808080;
+}
+
+.author {
+	text-align: right;
+	font-size: 13px;
+	color: #9c9c9c;
+	overflow: hidden;
+	padding-top: 20px;
+}
+
+.readcount {
+	display: inline;
+	float: left;
+}
+
+.editor {
+	display: inline;
+	float: right;
+}

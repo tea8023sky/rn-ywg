@@ -1,0 +1,141 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gangguwang.yewugo"
+    android:versionCode="3973"
+    android:versionName="3.0.18">
+    <!--版本修改build.gradle-->
+
+    <!-- ===网络相关权限=== -->
+    <!-- 获取网络信息状态，如当前的网络连接是否有效 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 获取当前WiFi接入的状态以及WLAN热点的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 访问网络连接，可能产生GPRS流量 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- ====定位相关权限=== -->
+    <!-- 通过GPS芯片接收卫星的定位信息，定位精度达10米以内 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 通过WiFi或移动基站的方式获取用户错略的经纬度信息，定位精度大概误差在30~1500米 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- 允许程序连接配对过的蓝牙设备 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!-- 显示系统窗口 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 访问电话状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+   
+    <!-- 允许访问摄像头进行拍照 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    
+    <!-- 程序可以读取设备外部存储空间（内置SDcard和外置SDCard）的文件，如果您的App已经添加了“WRITE_EXTERNAL_STORAGE ”权限 ，则就没必要添加读的权限了，写权限已经包含了读权限了。 -->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />　 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 允许程序访问额外的定位提供者指令 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />  
+    <!--震动权限-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+     <!--录音权限-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+    <!-- 极光 自定义用来收发消息的相关权限 -->
+    <permission
+        android:name="${applicationId}.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <!--百度语音合成权限-->
+    <!-- 修改声音设置信息 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- 允许读写系统设置项 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+		
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="23" />
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+         <activity
+            android:name=".MainActivity"
+            android:theme="@style/StartTheme"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"  
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>  
+                <action android:name="android.intent.action.VIEW"/>  
+                <category android:name="android.intent.category.DEFAULT" />  
+                <category android:name="android.intent.category.BROWSABLE" />  
+                <data android:scheme="myapp" android:host="ywg.app" android:pathPrefix="/openwith"/>  
+            </intent-filter>
+        </activity>
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <activity  
+            android:name=".WBShareActivity"  
+            android:configChanges="keyboardHidden|orientation"  
+            android:screenOrientation="portrait" >  
+            <intent-filter>  
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />  
+                <category android:name="android.intent.category.DEFAULT" />  
+                <action android:name ="android.intent.action.DOWNLOAD_COMPLETE"/>         
+            </intent-filter>  
+        </activity>  
+        <activity  
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"  
+            android:configChanges="keyboardHidden|orientation"  
+            android:windowSoftInputMode="adjustResize"  
+            android:exported="false" >  
+        </activity>  
+        <service android:name="com.sina.weibo.sdk.net.DownloadService"  
+            android:exported="false"></service>  
+        <activity  
+            android:name=".wxapi.WXEntryActivity"  
+            android:configChanges="keyboardHidden|orientation|screenSize"  
+            android:exported="true"  
+            android:screenOrientation="portrait"  
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />  
+        <activity  
+            android:name="com.tencent.tauth.AuthActivity"  
+            android:launchMode="singleTask"  
+            android:noHistory="true" >  
+        
+            <intent-filter>  
+                <action android:name="android.intent.action.VIEW" />  
+                <category android:name="android.intent.category.DEFAULT" />  
+                <category android:name="android.intent.category.BROWSABLE" />  
+                <data android:scheme="tencent1105777837" /> 
+            </intent-filter>  
+        </activity>  
+        <activity  
+            android:name="com.tencent.connect.common.AssistActivity"  
+            android:screenOrientation="portrait"  
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"  
+            android:configChanges="orientation|keyboardHidden|screenSize"/>  
+        <activity  
+            android:name=".apshare.ShareEntryActivity"  
+            android:configChanges="keyboardHidden|orientation|screenSize"  
+            android:exported="true"  
+            android:screenOrientation="portrait"  
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />  
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="57fb647c67e58e2bc9002872"></meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="GG_Tech" />
+
+        <meta-data android:name="JPUSH_CHANNEL" android:value="${APP_CHANNEL}"/>
+        <meta-data android:name="JPUSH_APPKEY" android:value="${JPUSH_APPKEY}"/>
+
+
+    </application>
+
+</manifest>
