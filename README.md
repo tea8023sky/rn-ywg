@@ -1,6 +1,6 @@
-# yewugo-rn
+# 项目介绍
 
-react native app .
+react native app 一款综合类app，包含：新闻、聊天、朋友圈、工具、个人信息等模块。
 
 引入第三方插件
 
@@ -84,9 +84,10 @@ https://github.com/itinance/react-native-fs
 
 https://github.com/jpush/jpush-react-native
 
-19.react-native-audio 音频录制库
+> 19.react-native-audio 音频录制库
 
 https://github.com/jsierles/react-native-audio
 
-20 新下载组件 react-native-fetch-blob
+> 20 新下载组件 react-native-fetch-blob
+
 https://github.com/wkh237/react-native-fetch-blob
